@@ -1,0 +1,35 @@
+api:
+  port: 8080
+  queues:
+    client: clients
+
+database:
+  host: localhost
+  port: 5432
+  user: admin
+  password: admin
+  dbname: golang_db
+  sslmode: false
+  timeout: 60
+
+rabbitmq:
+  host: localhost
+  port: 5672
+  user: admin
+  password: admin
+  queues:
+    clients:
+      name: clients
+      exchange: dlx_client_flow
+      routingkey: dlq_client_routing_key
+      durable: true
+      autoAck: false
+      exclusive: false
+      autodelete: false
+      passive: true
+      consumertag: null
+      args:
+        x-queue-type: "quorum"
+        x-dead-letter-exchange: dlx_client_flow
+        x-dead-letter-routing-key: dlq_client_routing_key
+        x-delivery-limit: 3
