@@ -71,6 +71,22 @@ Este projeto contém uma API REST para cadastro de clientes e um worker para pro
 
     Além disso, a documentação interativa da API (Swagger) está disponível em:  
     `GET /swagger/index.html`
+7. **Acesse a API:**
+  Para criar ou atualizar um cliente via API, envie um JSON no seguinte formato no corpo da requisição:
+
+  ```json
+  {
+      "id": 42,
+      "name": "Roberto",
+      "sobrenome": "Araujo",
+      "contato": "roberto@hotmail.com",
+      "cpf": "75735806145",
+      "endereco": "Rua 6 Jd Goias",
+      "nascimento": "1994-07-25T00:00:00Z"
+  }
+```
+Utilize este modelo ao fazer requisições para os endpoints `POST /api/client` e `PUT /api/client`.
+
 ---
 ---
 
